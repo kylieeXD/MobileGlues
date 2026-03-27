@@ -15,7 +15,7 @@ global_settings_t global_settings;
 
 void init_settings() {
 #if defined(__APPLE__)
-    global_settings.angle = AngleMode::Disabled;
+    global_settings.angle = AngleMode::Enabled;
     global_settings.ignore_error = IgnoreErrorLevel::Partial;
     global_settings.ext_gl43 = false;
     global_settings.ext_compute_shader = false;
@@ -110,7 +110,7 @@ void init_settings() {
         fsr1Setting = FSR1_Quality_Preset::Disabled;
     }
 
-    AngleMode finalAngleMode = AngleMode::Disabled;
+    AngleMode finalAngleMode = AngleMode::Enabled;
     std::string gpuString = getGPUInfo();
     const char* gpu_cstr = gpuString.c_str();
     LOG_D("GPU: %s", gpu_cstr ? gpu_cstr : "(unknown)")
@@ -154,7 +154,7 @@ void init_settings() {
 
     global_settings.angle = finalAngleMode;
     LOG_D("Final ANGLE setting: %d", static_cast<int>(global_settings.angle))
-    global_settings.buffer_coherent_as_flush = (global_settings.angle == AngleMode::Disabled);
+    global_settings.buffer_coherent_as_flush = (global_settings.angle == AngleMode::Enabled);
 
     if (global_settings.angle == AngleMode::Enabled) {
         // setenv("LIBGL_GLES", "libGLESv2_angle.so", 1);
