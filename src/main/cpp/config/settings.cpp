@@ -16,11 +16,11 @@ global_settings_t global_settings;
 void init_settings() {
 #if defined(__APPLE__)
     global_settings.angle = AngleMode::Enabled;
-    global_settings.ignore_error = IgnoreErrorLevel::Partial;
-    global_settings.ext_gl43 = false;
-    global_settings.ext_compute_shader = false;
-    global_settings.max_glsl_cache_size = 30 * 1024 * 1024;
-    global_settings.multidraw_mode = multidraw_mode_t::DrawElements;
+    global_settings.ignore_error = IgnoreErrorLevel::Full;
+    global_settings.ext_gl43 = true;
+    global_settings.ext_compute_shader = true;
+    global_settings.max_glsl_cache_size = 60 * 1024 * 1024;
+    global_settings.multidraw_mode = multidraw_mode_t::PreferBaseVertex;
     global_settings.angle_depth_clear_fix_mode = AngleDepthClearFixMode::Disabled;
     global_settings.ext_direct_state_access = true;
     global_settings.custom_gl_version = {0, 0, 0}; // will go default
